@@ -1,0 +1,21 @@
+---
+
+- name: Install Loops playbook
+  hosts: ungrouped
+  become: yes
+
+  tasks:
+
+  - name: Install many packages
+    apt:
+      name: "{{ item }}"
+      state: present
+    loop:
+      - python
+      - nginx
+      - mysql
+      - php
+      - docker
+
+
+      

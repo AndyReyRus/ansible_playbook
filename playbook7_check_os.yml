@@ -1,0 +1,11 @@
+---
+
+- name: Install Apache and Upload my Web Page
+  hosts: all
+  become: yes
+
+  tasks:
+
+  - name: Check and Print Linux Version
+    debug:
+      var: ansible_os_family

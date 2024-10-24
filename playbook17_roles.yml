@@ -1,0 +1,11 @@
+---
+
+- name: Install Apache and Upload my Web Page
+  hosts: ungrouped
+  become: yes
+
+  roles:
+    - { role: deploy_apache2_web, when: ansible_system == 'Linux' }
+
+    
+ 

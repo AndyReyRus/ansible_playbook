@@ -1,0 +1,13 @@
+---
+
+- name: Install Apache and Upload my Web Page
+  hosts: ungrouped
+  become: yes
+
+  roles:
+    - deploy_apache_web
+    - deploy_db
+    - deploy_relise
+
+
+    

@@ -1,0 +1,26 @@
+---
+
+- name: Install Apache and Upload my Web Page
+  hosts: ungrouped
+  become: yes
+
+  tasks:
+
+  - name: Stopped Apache and Enable on every boot
+    service:
+      name: apache2
+      state: stopped
+      enabled: no
+
+  - name: Unmask Apache service
+    command: systemctl unmask apache2
+
+  - name: Remove Apache Web Server
+    apt:
+      name: apache2
+      state: absent
+
+  - name: Remove the file /var/www/html/index.html
+    file:
+      path: /var/www/html/index.html
+      state: absent
